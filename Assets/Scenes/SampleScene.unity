@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentFuel: 0
   StartFuel: 25
-  thrust: 1
+  thrust: 2
   RB: {fileID: 1579052966}
 --- !u!212 &1579052964
 SpriteRenderer:
