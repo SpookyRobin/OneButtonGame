@@ -6,7 +6,7 @@ public class camFollow : MonoBehaviour
 {
     public Transform target;
     public float cameraSpeed = 2f;
-    public GameObject player;
+    
     
 
 
@@ -17,8 +17,7 @@ public class camFollow : MonoBehaviour
         if (target == null){
             Debug.Log("target = null");
         }
-        player = GameObject.Find("Box(Clone)");
-        target = player.transform;
+        
     }
 
     // Update is called once per frame
@@ -27,7 +26,7 @@ public class camFollow : MonoBehaviour
         if (target != null)
         {
             
-            Vector3 desiredPosition = target.position;
+            Vector3 desiredPosition = new Vector3(target.position.x, target.position.y, -10f);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, (cameraSpeed * Time.smoothDeltaTime));
             transform.position = smoothedPosition;
             
