@@ -9,25 +9,37 @@ public class UI : MonoBehaviour
     public Text height;
     public camFollow camFollow;
     public bool isDistance;
+    public Slider slider;
+    public Cannon cannon;
+    public bool sliderChange;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sliderChange = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDistance == true) {
-            distance.text = camFollow.transform.position.x.ToString();
-            distance.text = string.Format("{0:00.0} METERS", camFollow.transform.position.x);
-        }
-        else
+        
+        if (sliderChange)
         {
-            height.text = camFollow.transform.position.y.ToString();
-            height.text = string.Format("{0:00.0} METERS", camFollow.transform.position.y);
+            slider.value = cannon.power;
+                
+        }
+        
+
+        if (camFollow.target != null)
+        {
+            distance.text = camFollow.target.transform.position.x.ToString();
+            distance.text = string.Format("DISTANCE = {0:00.0} METERS", camFollow.target.transform.position.x);
+
+
+
+            height.text = camFollow.target.transform.position.y.ToString();
+            height.text = string.Format("HEIGHT = {0:00.0} METERS", camFollow.target.transform.position.y);
         }
     }
 }

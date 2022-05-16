@@ -11,7 +11,11 @@ public class Cannon : MonoBehaviour
     public float minRot = 0f;
     public float maxRot = 75f;
     public camFollow camFollow;
-    public int power;
+    public int minPower, maxPower;
+    public float speed;
+    public UI ui;
+    
+    public float power;
     [SerializeField]
     private bool canShoot;
     // Start is called before the first frame update
@@ -38,6 +42,11 @@ public class Cannon : MonoBehaviour
 
 
 
+            if (Input.GetMouseButton(0))
+            {
+                Debug.Log("Holding...");
+                power = Mathf.SmoothStep(minPower, maxPower, Mathf.PingPong(Time.time * speed, 1));
+            }
 
         if (Input.GetMouseButtonUp(0))
         {
@@ -45,6 +54,7 @@ public class Cannon : MonoBehaviour
             Shoot();
 
             canShoot = false;
+            ui.sliderChange = false;
         }
     }
 

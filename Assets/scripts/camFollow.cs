@@ -25,8 +25,8 @@ public class camFollow : MonoBehaviour
     {
         if (target != null)
         {
-            
-            Vector3 desiredPosition = new Vector3(target.position.x, target.position.y, -10f);
+            var newTarget = Mathf.Clamp(target.position.y, 1.78f, 10000f);
+            Vector3 desiredPosition = new Vector3(target.position.x, newTarget, -10f);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, (cameraSpeed * Time.smoothDeltaTime));
             transform.position = smoothedPosition;
             

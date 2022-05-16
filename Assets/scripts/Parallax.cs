@@ -19,7 +19,7 @@ public class Parallax : MonoBehaviour
         float dist = (cam.transform.position.x * parallexEffect);
         if (isSky == false)
         {
-            transform.position = new Vector3(startpos + dist, 0, transform.position.z);
+            transform.position = new Vector3(startpos + dist, 1.78f, transform.position.z);
         }
         if(isSky == true)
         {
@@ -28,4 +28,6 @@ public class Parallax : MonoBehaviour
         if (temp > startpos + length) startpos += length;
         else if (temp < startpos - length) startpos -= length;
     }
+    
 }
+
