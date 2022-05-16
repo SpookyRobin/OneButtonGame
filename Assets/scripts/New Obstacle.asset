@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67f3df688f1ce64382d69dbc9213c7c, type: 3}
   m_Name: New Obstacle
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  velocity: 0
+  sprite: {fileID: 1601607523953437113, guid: cbb57cf96612f2c40a59d65a5679e446, type: 3}
+  velocity: 0.9
