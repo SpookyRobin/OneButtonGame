@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Obstacle", menuName ="Obstacle")]
+[CreateAssetMenu(fileName ="New Obstacle", menuName ="ScriptableObjects/Obstacles")]
 public class Obstacles : ScriptableObject
 {
-    public Sprite sprite;
+    public GameObject prefab;
     public float velocity;
 }

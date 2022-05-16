@@ -22,6 +22,8 @@ public class Cannon : MonoBehaviour
     void Start()
     {
         canShoot = true;
+
+        
     }
 
     // Update is called once per frame
@@ -45,7 +47,8 @@ public class Cannon : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 Debug.Log("Holding...");
-                power = Mathf.SmoothStep(minPower, maxPower, Mathf.PingPong(Time.time * speed, 1));
+                power = Mathf.SmoothStep(minPower, maxPower, Mathf.PingPong(Time.time  * speed, 1));
+                ui.slider.gameObject.SetActive(true);
             }
 
         if (Input.GetMouseButtonUp(0))
@@ -55,6 +58,7 @@ public class Cannon : MonoBehaviour
 
             canShoot = false;
             ui.sliderChange = false;
+            ui.slider.gameObject.SetActive(false);
         }
     }
 

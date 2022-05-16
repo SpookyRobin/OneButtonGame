@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c67f3df688f1ce64382d69dbc9213c7c, type: 3}
-  m_Name: New Obstacle
+  m_Name: Bird
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1601607523953437113, guid: cbb57cf96612f2c40a59d65a5679e446, type: 3}
+  prefab: {fileID: 5490896667527505182, guid: ffb1eb6f162d32d43b54c1582389b743, type: 3}
   velocity: 0.9
