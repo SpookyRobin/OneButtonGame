@@ -2,22 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
+    public GameManager GM;
+    
+
     public Text distance;
     public Text height;
-    public camFollow camFollow;
     public bool isDistance;
     public Slider slider;
-    public Cannon cannon;
     public bool sliderChange;
-    
+
+    public GameObject endPanel;
+    public float endTime = 1.5f;
+
+    public GameObject shopPanel;
 
     // Start is called before the first frame update
     void Start()
     {
         sliderChange = true;
+        
     }
 
     // Update is called once per frame
@@ -26,20 +33,47 @@ public class UI : MonoBehaviour
         
         if (sliderChange)
         {
-            slider.value = cannon.power;
+            slider.value = GM.cannon.power;
                 
         }
         
 
-        if (camFollow.target != null)
+        if (GM.target != null)
         {
-            distance.text = camFollow.target.transform.position.x.ToString();
-            distance.text = string.Format("DISTANCE = {0:00.0} METERS", camFollow.target.transform.position.x);
+            distance.text = GM.target.transform.position.x.ToString();
+            distance.text = string.Format("DISTANCE = {0:00.0} METERS", GM.target.transform.position.x);
 
 
 
-            height.text = camFollow.target.transform.position.y.ToString();
-            height.text = string.Format("HEIGHT = {0:00.0} METERS", camFollow.target.transform.position.y);
+            height.text = GM.target.transform.position.y.ToString();
+            height.text = string.Format("HEIGHT = {0:00.0} METERS", GM.target.transform.position.y);
         }
+        
+
+        
+    }
+
+    public void End()
+    {
+        endTime -= Time.deltaTime;
+        if (endTime <= 0f)
+            endPanel.SetActive(true);
+    }
+
+    public void Shop()
+    {
+        endPanel.SetActive(false);
+        shopPanel.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
